@@ -1,17 +1,18 @@
 document.getElementById('bmi-form').addEventListener('submit', function (e) {
   e.preventDefault(); // Prevent form submission
 
-  // Get input values
+  // mengambil jumlah tinggi dan berat badan
   const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
   const weight = parseFloat(document.getElementById('weight').value);
 
-  // Calculate BMI
+  // menghitung BMI
   const bmi = (weight / (height * height)).toFixed(2);
 
-  // Display result
+  // menampilkan hasil BMI
   const resultDiv = document.getElementById('result');
   let category = '';
 
+  // logika untuk menentukan berat badan
   if (bmi < 18.5) {
     category = 'Berat badan kurang';
   } else if (bmi >= 18.5 && bmi < 24.9) {
@@ -22,6 +23,7 @@ document.getElementById('bmi-form').addEventListener('submit', function (e) {
     category = 'Obesitas';
   }
 
+  // menampilkan hasil ke html
   resultDiv.innerHTML = `Berat badan kamu: ${bmi} <br><br> ${category}
   `;
 });
